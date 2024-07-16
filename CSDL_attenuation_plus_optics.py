@@ -98,7 +98,8 @@ I_rs = [0] * len(alt_steps)
 
 j = 0
 for i in alt_steps:
-    I_rs[j] = Is[j] * float(eta_ts[j].value)
+    print(eta_ts[j].value)
+    I_rs[j] = Is[j] * eta_ts[j]
     # print(I_rs[j])
     j = j + 1
 
@@ -108,12 +109,19 @@ for i in alt_steps:
 
 recorder.stop()
 
+# Is_list = [0] * len(Is)
+I_rs_list = [0] * len(Is)
+
+for i in range(len(Is)):
+    # Is_list[i] = Is[i].value
+    I_rs_list[i] = I_rs[i].value
+
 if alt_t == alt_r:
     plt.plot(list(range(0, horizontal_distance + stepsize, stepsize)),Is)
     plt.xlabel("Horizontal Distance [m]") 
 else:
     plt.plot(alt_steps,Is,'-', label='Received power not considering optics')
-    plt.plot(alt_steps,I_rs,'--',label='Received power considering optics')
+    plt.plot(alt_steps,I_rs_list,'--',label='Received power considering optics')
     plt.xlabel("Altitude [m]")
 
 plt.ylabel("Received Power")

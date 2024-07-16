@@ -39,6 +39,7 @@ def CSDL_optics(d_t, d_r, lam, n, dist, theta, alt_t, alt_r, alt_steps):
 
     # Need to make dist_t positive if for some reason the solver gives its negative conjugate.
     dist_t = (dist_t**2)**0.5
+    # csdl.norm also works. if dist_t = 0 you will get an error
 
     # print('dist_t: ',dist_t.value)
     # print('residual: ',residual_1.value)

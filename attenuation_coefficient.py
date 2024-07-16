@@ -15,9 +15,9 @@ def attenuation_coefficient(f, alt, p_tot, T):
 
     theta = 300/T
 
-    OX_data = "C:\\Users\\seth3\\Documents\\Academic and Professional\\LSDO\\ITU-R_P\\v12_lines_oxygen.txt"
+    OX_data = "v12_lines_oxygen.txt"
 
-    H2O_data = "C:\\Users\\seth3\\Documents\\Academic and Professional\\LSDO\\ITU-R_P\\v12_lines_water_vapour.txt"
+    H2O_data = "v12_lines_water_vapour.txt"
 
     OX_table = np.loadtxt(OX_data, dtype=float, skiprows=1,delimiter=',')
 
