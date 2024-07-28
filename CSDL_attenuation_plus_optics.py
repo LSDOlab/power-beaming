@@ -1,5 +1,6 @@
 # to do:
 # replace fixed refractive index with ITU-R rec
+# replace custom atmospheric layer thicknesses with ITUR R-P 676 specs
 
 import csdl_alpha as csdl
 import numpy as np

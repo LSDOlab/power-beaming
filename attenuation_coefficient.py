@@ -53,9 +53,9 @@ def attenuation_coefficient(f, alt, p_tot, T):
         Deltaf_OX[i] = np.sqrt(Deltaf_OX[i]**2 + 2.25 * 10**-6)
         delta_OX[i] = (a5s[i] + a6s[i]*theta) * 10**-4 * (p_air + e) * theta**0.8
 
-    if f < 10 or f > 100:
-        d = 5.6 * 10**-4 * (p_air + e) * theta**0.8
-        NppD_OX = f * p_air * theta**2 * ((6.14 * 10**-5)/(d*(1 + (f/d)**2)) + (1.4 * 10**-12 * p_air * theta**1.5)/(1 + 1.9 * 10**-5 * f**1.5))
+
+    d = 5.6 * 10**-4 * (p_air + e) * theta**0.8
+    NppD_OX = f * p_air * theta**2 * ((6.14 * 10**-5)/(d*(1 + (f/d)**2)) + (1.4 * 10**-12 * p_air * theta**1.5)/(1 + 1.9 * 10**-5 * f**1.5))
 
     for l in range(len(Fis_OX)):
         Fis_OX[l] = f/f0s_OX[l] * ((Deltaf_OX[l] - delta_OX[l] * (f0s_OX[l] - f))/((f0s_OX[l] - f)**2 + Deltaf_OX[l]**2) + (Deltaf_OX[l] - delta_OX[l] * (f0s_OX[l] + f))/((f0s_OX[l] + f)**2 + Deltaf_OX[l]**2))
